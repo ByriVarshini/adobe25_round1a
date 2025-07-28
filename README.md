@@ -1,35 +1,41 @@
 
-
-````markdown
-# 📄 Adobe Hackathon – Challenge 1A  
+# **Adobe Hackathon – Challenge 1A  
 ## 🧠 PDF Document Outline Extraction
+
+---
 
 ## 🚀 Overview
 
-This solution tackles **Challenge 1A** of the Adobe Hackathon.  
-The goal is to convert a given PDF document into a structured outline with a clear hierarchy of:
+This solution addresses **Challenge 1A** of the Adobe India Hackathon, where the objective is to convert PDF documents into structured outlines. The extracted hierarchy includes:
 
-- **Title**
-- **Headings** (H1, H2, H3)
-- **Page numbers**
+- **Document Title**
+- **Headings**: H1, H2, H3
+- **Associated Page Numbers**
 
+The resulting outline enables smarter downstream applications like semantic search, document navigation, and insight extraction.
 
-## 📦 Folder Structure
+---
+
+## 📁 Folder Structure
 
 ```bash
 CHALLENGE-1A/
 ├── sample_dataset/
-│   ├── outputs/              # JSON outputs will be saved here
-│   ├── pdfs/                 # Input PDF files go here
+│   ├── pdfs/                   # Input PDFs
+│   ├── outputs/                # Generated output JSONs
 │   └── schema/
-│       └── output_schema.json   # Output format reference
-├── process_pdfs.py          # Main Python script
-├── Dockerfile               # Docker configuration
-├── requirements.txt         # Python dependencies
-└── README.md                # This file
+│       └── output_schema.json  # Output structure specification
+├── process_pdfs.py             # Core extraction script
+├── Dockerfile                  # Container definition
+├── requirements.txt            # Python dependencies
+└── README.md                   # Project documentation
 ````
 
-Each output JSON will follow the structure defined in `output_schema.json`:
+---
+
+## 🧾 Output Format
+
+Each PDF is converted into a `.json` file matching the schema:
 
 ```json
 {
@@ -42,25 +48,42 @@ Each output JSON will follow the structure defined in `output_schema.json`:
 }
 ```
 
+You can find the schema at:
+
+```
+sample_dataset/schema/output_schema.json
+```
+
+
 ## 🧠 How It Works
 
-* The script uses `PyMuPDF` to extract visual and positional text info.
-* Heuristics are applied to detect:
+1. **PDF Parsing**
 
-  * Title (largest, top-most font near start)
-  * Headings (by size, styling, format)
-* All results are saved as structured JSON files.
+   * Uses `PyMuPDF` to extract raw text along with font sizes, positions, and styles.
 
+2. **Title & Heading Detection**
+
+   * Title is inferred as the largest, top-most prominent text block.
+   * Headings (H1, H2, H3) are classified based on:
+
+     * Font size
+     * Text formatting
+     * Capitalization
+     * Positional hierarchy
+
+3. **Structured Output**
+
+   * Results are serialized into well-formatted JSON files for each input PDF.
+
+---
 
 ## 🐳 Docker Usage
 
-### 🔨 Build the Docker Image
+### 🧱 Build the Image
 
 ```bash
 docker build -t challenge1a.processor .
 ```
-
-
 
 ### 🚀 Run the Processor
 
@@ -70,32 +93,5 @@ docker run --rm \
   -v ${PWD}/sample_dataset/outputs:/app/output \
   --network none challenge1a.processor
 ```
-
-
-## 📋 Constraints
-
-| Requirement    | Limit                        |
-| -------------- | ---------------------------- |
-| Execution Time | ≤ 10 seconds per 50-page PDF |
-| Model Size     | ≤ 200MB (if applicable)      |
-| Environment    | CPU-only, offline mode       |
-| Platform       | Must support `linux/amd64`   |
-
-## 🧪 Testing & Validation
-
-You can validate your JSON against the schema:
-
-```
-sample_dataset/schema/output_schema.json
-```
-
-Use tools like [https://jsonschema.net](https://jsonschema.net) or a script using `jsonschema` Python package.
-
-
-## 🔗 References
-
-* [Adobe Challenge Repo](https://github.com/jhaaj08/Adobe-India-Hackathon25)
-* [PyMuPDF Documentation](https://pymupdf.readthedocs.io/en/latest/)
-
 
 
