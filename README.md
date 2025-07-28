@@ -1,8 +1,6 @@
 
-# **Adobe Hackathon – Challenge 1A  
+# **Adobe Hackathon – Challenge 1A**  
 ## 🧠 PDF Document Outline Extraction
-
----
 
 ## 🚀 Overview
 
