@@ -1,7 +1,5 @@
-
 # **Adobe Hackathon – Challenge 1A**  
 ## 🧠 PDF Document Outline Extraction
-
 ## 🚀 Overview
 
 This solution addresses **Challenge 1A** of the Adobe India Hackathon, where the objective is to convert PDF documents into structured outlines. The extracted hierarchy includes:
@@ -9,10 +7,7 @@ This solution addresses **Challenge 1A** of the Adobe India Hackathon, where the
 - **Document Title**
 - **Headings**: H1, H2, H3
 - **Associated Page Numbers**
-
 The resulting outline enables smarter downstream applications like semantic search, document navigation, and insight extraction.
-
----
 
 ## 📁 Folder Structure
 
