@@ -29,26 +29,6 @@ CHALLENGE-1A/
 └── README.md                # This file
 ````
 
----
-
-## 📥 Input
-
-Place all `.pdf` files inside the folder:
-
-```
-sample_dataset/pdfs/
-```
-
----
-
-## 📤 Output
-
-The corresponding `.json` files will be saved to:
-
-```
-sample_dataset/outputs/
-```
-
 Each output JSON will follow the structure defined in `output_schema.json`:
 
 ```json
