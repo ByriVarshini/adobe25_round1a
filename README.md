@@ -1,6 +1,4 @@
-Thanks! Based on your screenshot and Docker commands, here's the complete and **customized `README.md`** for your **Adobe Challenge 1A** project structure and workflow:
 
----
 
 ````markdown
 # 📄 Adobe Hackathon – Challenge 1A  
